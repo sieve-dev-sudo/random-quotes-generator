@@ -47,6 +47,7 @@ const cord = document.getElementById('cord');
 
 let sparkCount = 0;
 let busy = false;
+let powerOn = true;
 
 function renderWords(text) {
   ideaText.innerHTML = '';
@@ -60,7 +61,7 @@ function renderWords(text) {
 }
 
 function pull() {
-  if (busy) return;
+  if (busy || !powerOn) return;
   busy = true;
   pullBtn.disabled = true;
 
@@ -92,4 +93,24 @@ function pull() {
   }, 650);
 }
 
+function toggleBulb() {
+  if (busy) return;
+
+  powerOn = !powerOn;
+
+  if (powerOn) {
+    bulbWrap.classList.remove('off');
+    pullBtn.disabled = false;
+  } else {
+    bulbWrap.classList.remove('lit', 'charging');
+    bulbWrap.classList.add('off');
+    pullRing.classList.remove('lit');
+    cardLabel.textContent = '';
+    ideaText.innerHTML = '<span class="empty-state">lights off — tap the bulb to switch it back on</span>';
+    pullBtn.disabled = true;
+  }
+}
+
 pullBtn.addEventListener('click', pull);
+bulbWrap.addEventListener('click', toggleBulb);
+pullRing.addEventListener('click', toggleBulb);

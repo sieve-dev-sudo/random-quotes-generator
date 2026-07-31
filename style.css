@@ -68,8 +68,8 @@
   }
 
   .eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.35em;
+    font-size: 15px;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--ink-dim);
     margin-bottom: 30px;
@@ -125,6 +125,7 @@
     border-radius: 50%;
     border: 1.5px solid var(--wire);
     margin-top: -1px;
+    cursor: pointer;
     transition: border-color 0.4s ease;
   }
 
@@ -154,7 +155,16 @@
 
   .bulb-wrap.lit .socket-glow { opacity: 1; }
 
-  svg#bulb { width: 100%; height: 100%; overflow: visible; position: relative; z-index: 1; }
+  svg#bulb { width: 100%; height: 100%; overflow: visible; position: relative; z-index: 1; cursor: pointer; }
+
+  .bulb-wrap.off {
+    opacity: 0.5;
+  }
+
+  .bulb-wrap.off .glow-core,
+  .bulb-wrap.off .socket-glow {
+    opacity: 0 !important;
+  }
 
   .filament {
     stroke: var(--wire);
@@ -197,7 +207,15 @@
     50% { stroke: var(--gold); filter: drop-shadow(0 0 4px var(--gold)); }
   }
 
-  /* ---- Card ---- */
+  .switch-hint {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    opacity: 0.7;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
   .card {
     width: 100%;
     background: linear-gradient(180deg, var(--bg-1), var(--bg-2));

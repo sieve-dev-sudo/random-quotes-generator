@@ -33,7 +33,36 @@ const IDEAS = {
     "A tiny agency that writes apology notes on behalf of the terminally busy.",
     "A rental service for one single good houseplant, swapped monthly.",
     "A newsletter that reviews silence in different rooms of the city."
+  ],
+  "reflect": [
+    "A closed notebook has never finished a single sentence.",
+    "The bulb doesn't choose when to flicker — you choose when to pull the cord.",
+    "Small sparks start bigger fires than big plans ever do.",
+    "An idea kept in the dark just gets colder.",
+    "The first draft is only a match, not the fire.",
+    "Nobody remembers the idea you didn't write down.",
+    "A good idea interrupted still beats a perfect one delayed.",
+    "The cord only works if somebody's willing to pull it.",
+    "Ideas rot faster in silence than they ever do in failure.",
+    "Every finished thing was once somebody's rough sketch.",
+    "A dim idea shared beats a bright idea kept.",
+    "The spark doesn't ask permission before it catches.",
+    "Waiting for the perfect idea is how good ones go dark.",
+    "One pulled cord is worth ten unlit bulbs.",
+    "The room only feels small until you turn something on.",
+    "A single spark still counts, even if nothing burns.",
+    "Ideas stay cheap until somebody starts building one.",
+    "The bulb was always there — someone just had to reach for the cord."
   ]
+};
+
+const CAT_LABELS = {
+  make: 'something to make',
+  write: 'something to write',
+  build: 'something to build',
+  cook: 'something to cook',
+  start: 'something to start',
+  reflect: 'something to sit with'
 };
 
 const CATS = Object.keys(IDEAS);
@@ -82,7 +111,7 @@ function pull() {
     const list = IDEAS[cat];
     const idea = list[Math.floor(Math.random() * list.length)];
 
-    cardLabel.innerHTML = cat + ' <span class="n">·</span> <span class="n">something to ' + cat + '</span>';
+    cardLabel.innerHTML = cat + ' <span class="n">·</span> <span class="n">' + CAT_LABELS[cat] + '</span>';
     renderWords(idea);
 
     sparkCount += 1;

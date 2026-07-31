@@ -1,0 +1,334 @@
+:root {
+    --ink: #F4EFE6;
+    --ink-dim: #B7AFA0;
+    --bg-0: #16171B;
+    --bg-1: #1E2024;
+    --bg-2: #24262B;
+    --gold: #F2B705;
+    --gold-dim: #8A6A17;
+    --coral: #FF6B5E;
+    --wire: #3A3D44;
+    --radius: 3px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg-0);
+    color: var(--ink);
+    font-family: 'Space Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background-image:
+      radial-gradient(circle at 50% 8%, rgba(242,183,5,0.07), transparent 55%),
+      radial-gradient(circle at 85% 85%, rgba(255,107,94,0.04), transparent 50%);
+  }
+
+  /* subtle grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* faint filament-wire border frame, echoes the bulb */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 18px;
+    pointer-events: none;
+    border: 1px solid rgba(255,255,255,0.03);
+    border-radius: 6px;
+  }
+
+  .rig {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before, .eyebrow::after {
+    content: '';
+    height: 1px;
+    width: 22px;
+    background: var(--wire);
+  }
+
+  /* ---- Cord & socket ---- */
+  .socket-rig {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -6px;
+  }
+
+  .socket {
+    width: 34px;
+    height: 14px;
+    background: linear-gradient(180deg, #2C2E33, #1A1B1E);
+    border: 1px solid var(--wire);
+    border-bottom: none;
+    border-radius: 2px 2px 0 0;
+  }
+
+  .cord {
+    width: 1.5px;
+    height: 30px;
+    background: var(--wire);
+    transform-origin: top center;
+  }
+
+  .cord.tug {
+    animation: tug 0.5s ease;
+  }
+
+  @keyframes tug {
+    0% { height: 30px; }
+    30% { height: 42px; }
+    100% { height: 30px; }
+  }
+
+  .pull-ring {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 1.5px solid var(--wire);
+    margin-top: -1px;
+    transition: border-color 0.4s ease;
+  }
+
+  .pull-ring.lit { border-color: var(--gold-dim); }
+
+  /* ---- The bulb ---- */
+  .bulb-wrap {
+    position: relative;
+    width: 130px;
+    height: 170px;
+    margin-bottom: 4px;
+  }
+
+  .socket-glow {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 220px;
+    height: 220px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(242,183,5,0.16), transparent 68%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .bulb-wrap.lit .socket-glow { opacity: 1; }
+
+  svg#bulb { width: 100%; height: 100%; overflow: visible; position: relative; z-index: 1; }
+
+  .filament {
+    stroke: var(--wire);
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    transition: stroke 0.15s ease;
+  }
+
+  .glass {
+    stroke: var(--wire);
+    stroke-width: 1.5;
+    fill: rgba(255,255,255,0.02);
+    transition: fill 0.4s ease, stroke 0.4s ease;
+  }
+
+  .glow-core {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .bulb-wrap.lit .filament {
+    stroke: var(--gold);
+    filter: drop-shadow(0 0 6px var(--gold));
+  }
+  .bulb-wrap.lit .glass {
+    fill: rgba(242,183,5,0.06);
+    stroke: var(--gold-dim);
+  }
+  .bulb-wrap.lit .glow-core {
+    opacity: 1;
+  }
+
+  .bulb-wrap.charging .filament {
+    animation: flicker 0.6s steps(6) infinite;
+  }
+
+  @keyframes flicker {
+    0%, 100% { stroke: var(--wire); filter: none; }
+    50% { stroke: var(--gold); filter: drop-shadow(0 0 4px var(--gold)); }
+  }
+
+  /* ---- Card ---- */
+  .card {
+    width: 100%;
+    background: linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    border: 1px solid var(--wire);
+    border-radius: 6px;
+    padding: 38px 34px 32px;
+    margin-top: 22px;
+    position: relative;
+    min-height: 172px;
+    box-shadow:
+      0 24px 48px -24px rgba(0,0,0,0.55),
+      inset 0 1px 0 rgba(255,255,255,0.02);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 28px; right: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    opacity: 0.7;
+  }
+
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    min-height: 12px;
+  }
+
+  .card-label .n {
+    color: var(--ink-dim);
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    font-style: italic;
+  }
+
+  .idea-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 1.38;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .idea-text .empty-state {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    color: var(--ink-dim);
+    font-style: italic;
+  }
+
+  .idea-text em {
+    color: var(--coral);
+    font-style: italic;
+  }
+
+  /* fade-in per word */
+  .idea-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(6px);
+    animation: rise 0.4s ease forwards;
+  }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- Switch / button ---- */
+  .pull {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .pull-btn {
+    appearance: none;
+    border: 1px solid var(--gold-dim);
+    background: transparent;
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  }
+
+  .pull-btn:hover {
+    background: var(--gold);
+    color: var(--bg-0);
+    box-shadow: 0 6px 20px -6px rgba(242,183,5,0.4);
+  }
+
+  .pull-btn:active {
+    transform: scale(0.97);
+  }
+
+  .pull-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .pull-btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .count {
+    font-size: 11px;
+    color: var(--ink-dim);
+    letter-spacing: 0.12em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .idea-text span { animation: none; opacity: 1; transform: none; }
+    .bulb-wrap.charging .filament { animation: none; }
+  }
+
+  @media (max-width: 420px) {
+    .idea-text { font-size: 21px; }
+    .card { padding: 28px 22px 24px; }
+  }

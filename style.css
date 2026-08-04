@@ -334,6 +334,44 @@
     outline-offset: 3px;
   }
 
+  .power-btn {
+    appearance: none;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--wire);
+    background: var(--bg-1);
+    color: var(--ink-dim);
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    z-index: 2;
+    box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .power-btn:hover {
+    border-color: var(--gold-dim);
+    color: var(--ink);
+  }
+
+  .power-btn.is-on {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--bg-0);
+    box-shadow: 0 6px 20px -6px rgba(242,183,5,0.45);
+  }
+
+  .power-btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
   .count {
     font-size: 11px;
     color: var(--ink-dim);

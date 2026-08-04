@@ -4,55 +4,72 @@ const IDEAS = {
     "Business cards printed on seed paper — plant them instead of filing them.",
     "A birdhouse shaped like the house you grew up in.",
     "A set of coasters that map the coastline of somewhere you've never been.",
-    "A wind chime tuned to a single chord instead of random notes."
+    "A wind chime tuned to a single chord instead of random notes.",
+    "ធ្វើចង្កៀងមួយដែលបំភ្លឺតែពេលបន្ទប់ស្ងាត់ល្មម។",
+    "ធ្វើប័ណ្ណជួបជុំពីក្រដាសគ្រាប់ពូជ — ដាំវាជំនួសឲ្យដាក់ឯកសារ។",
+    "ធ្វើផ្ទះបក្សីមួយមានរូបរាងដូចផ្ទះកំណើតរបស់អ្នក។"
   ],
   "write": [
     "A letter from your future self, mailed to arrive exactly one year late.",
     "A story told entirely through the customer reviews of a cursed object.",
     "An obituary for a bad habit you finally broke.",
     "A field guide to the moods of your morning commute.",
-    "Two strangers narrate the same event from opposite ends of a train."
+    "Two strangers narrate the same event from opposite ends of a train.",
+    "សរសេរសំបុត្រពីខ្លួនអ្នកនាពេលអនាគត ផ្ញើឲ្យមកដល់យឺតមួយឆ្នាំ។",
+    "សរសេររឿងមួយទាំងស្រុងតាមរយៈមតិវាយតម្លៃរបស់វត្ថុមានបណ្តាសា។",
+    "សរសេរសេចក្តីរំលឹកចំពោះទម្លាប់អាក្រក់ដែលអ្នកទើបតែឈប់។"
   ],
   "build": [
     "A to-do list app where unfinished tasks slowly fade instead of nagging.",
     "A tiny tool that turns any playlist into a color gradient.",
     "A browser extension that replaces 'breaking news' with 'breaking noon' at lunchtime.",
     "A doorbell that plays a different tiny melody each visitor gets assigned.",
-    "A weather app that only describes what to wear, never the numbers."
+    "A weather app that only describes what to wear, never the numbers.",
+    "សាងសង់ app កត់ត្រាការងារ ដែលកិច្ចការមិនទាន់ចប់ស្រាយបន្តិចម្តងៗ ជំនួសឲ្យរំខាន។",
+    "សាងសង់ឧបករណ៍តូចមួយប្តូរ playlist ទៅជា color gradient។",
+    "សាងសង់កណ្តឹងទ្វារលេងបទភ្លេងខុសៗគ្នាតាមភ្ញៀវម្នាក់ៗ។"
   ],
   "cook": [
     "Rebuild your favorite childhood snack using only ingredients from one country.",
     "A dinner where every course is a different temperature of the same soup.",
     "Bread shaped like the skyline of your hometown.",
     "A dessert that's intentionally too salty until the very last bite.",
-    "A one-pot meal you're only allowed to season with things grown outdoors."
+    "A one-pot meal you're only allowed to season with things grown outdoors.",
+    "ចម្អិនអាហារពេលល្ងាចដែលរាល់មុខមានកម្តៅខុសគ្នា ប៉ុន្តែស៊ុបដូចគ្នា។",
+    "ដុតនំបុ័ងឲ្យមានរូបរាងដូចខ្សែជើងមេឃទីក្រុងកំណើតរបស់អ្នក។",
+    "ចម្អិនម្ហូបតែមួយឆ្នាំង ដោយប្រើគ្រឿងផ្សំតែពីខាងក្រៅផ្ទះប៉ុណ្ណោះ។"
   ],
   "start": [
     "A subscription box for other people's unfinished side projects.",
     "A repair café that only fixes things older than the person bringing them in.",
     "A tiny agency that writes apology notes on behalf of the terminally busy.",
     "A rental service for one single good houseplant, swapped monthly.",
-    "A newsletter that reviews silence in different rooms of the city."
+    "A newsletter that reviews silence in different rooms of the city.",
+    "ចាប់ផ្តើមសេវាជួល houseplant មួយក្តាប់ ប្តូរជារៀងរាល់ខែ។",
+    "ចាប់ផ្តើម newsletter វាយតម្លៃភាពស្ងាត់ក្នុងបន្ទប់ផ្សេងៗនៃទីក្រុង។",
+    "ចាប់ផ្តើមភ្នាក់ងារតូចមួយសរសេរលិខិតសុំទោសជំនួសមនុស្សដែលរវល់ខ្លាំង។"
   ],
-  "reflect": [
-    "A closed notebook has never finished a single sentence.",
-    "The bulb doesn't choose when to flicker — you choose when to pull the cord.",
-    "Small sparks start bigger fires than big plans ever do.",
-    "An idea kept in the dark just gets colder.",
-    "The first draft is only a match, not the fire.",
-    "Nobody remembers the idea you didn't write down.",
-    "A good idea interrupted still beats a perfect one delayed.",
-    "The cord only works if somebody's willing to pull it.",
-    "Ideas rot faster in silence than they ever do in failure.",
-    "Every finished thing was once somebody's rough sketch.",
-    "A dim idea shared beats a bright idea kept.",
-    "The spark doesn't ask permission before it catches.",
-    "Waiting for the perfect idea is how good ones go dark.",
-    "One pulled cord is worth ten unlit bulbs.",
-    "The room only feels small until you turn something on.",
-    "A single spark still counts, even if nothing burns.",
-    "Ideas stay cheap until somebody starts building one.",
-    "The bulb was always there — someone just had to reach for the cord."
+  "quotes": [
+    "Every big idea started as someone's small doodle.",
+    "You don't need permission to begin — just a spark.",
+    "The best time to start was yesterday. The second best time is now.",
+    "Small steps still move you forward.",
+    "Your idea doesn't have to be perfect to be worth trying.",
+    "Creativity grows every time you use it.",
+    "One good idea can change your whole day.",
+    "Progress, not perfection, keeps the light on.",
+    "Believe in the spark before you see the fire.",
+    "You already have everything you need to start.",
+    "គំនិតធំៗគ្រប់យ៉ាង ចាប់ផ្តើមចេញពីគំនូរតូចមួយ។",
+    "អ្នកមិនចាំបាច់រង់ចាំការអនុញ្ញាតទេ គ្រាន់តែត្រូវការភ្លើងចាប់ផ្តើមមួយប៉ុណ្ណោះ។",
+    "ពេលវេលាល្អបំផុតដើម្បីចាប់ផ្តើម គឺពេលនេះឯង។",
+    "ជំហានតូចៗ នៅតែនាំអ្នកទៅមុខ។",
+    "គំនិតរបស់អ្នកមិនចាំបាច់ល្អឥតខ្ចោះ ក៏អាចសាកល្បងបានដែរ។",
+    "ភាពច្នៃប្រឌិត កាន់តែរីកចម្រើនរាល់ពេលអ្នកប្រើវា។",
+    "គំនិតល្អមួយ អាចផ្លាស់ប្តូរទាំងមួយថ្ងៃរបស់អ្នក។",
+    "វឌ្ឍនភាព មិនមែនភាពល្អឥតខ្ចោះទេ ដែលរក្សាភ្លើងឲ្យបន្តឆេះ។",
+    "ជឿជាក់លើផ្កាភ្លើងតូច មុននឹងឃើញភ្លើងធំ។",
+    "អ្នកមានគ្រប់យ៉ាងរួចហើយ ដើម្បីចាប់ផ្តើម។"
   ]
 };
 
@@ -62,7 +79,7 @@ const CAT_LABELS = {
   build: 'something to build',
   cook: 'something to cook',
   start: 'something to start',
-  reflect: 'something to sit with'
+  quotes: 'a quote for today'
 };
 
 const CATS = Object.keys(IDEAS);

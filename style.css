@@ -263,9 +263,9 @@
     font-family: 'Fraunces', serif;
     font-weight: 500;
     font-size: 27px;
-    line-height: 1.38;
+    line-height: 1.5;
     color: var(--ink);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 
   .idea-text .empty-state {
@@ -387,4 +387,9 @@
   @media (max-width: 420px) {
     .idea-text { font-size: 21px; }
     .card { padding: 28px 22px 24px; }
+    .eyebrow { letter-spacing: 0.18em; text-align: center; justify-content: center; }
+    .eyebrow::before, .eyebrow::after { display: none; }
+    .eyebrow-text { text-align: center; }
+    .eyebrow-sep { display: none; }
+    .eyebrow-line2 { display: block; margin-top: 6px; }
   }

@@ -73,6 +73,7 @@ const pullBtn = document.getElementById('pullBtn');
 const countEl = document.getElementById('count');
 const pullRing = document.getElementById('pullRing');
 const cord = document.getElementById('cord');
+const powerBtn = document.getElementById('powerBtn');
 
 let sparkCount = 0;
 let busy = false;
@@ -106,6 +107,7 @@ function pull() {
     bulbWrap.classList.remove('charging');
     bulbWrap.classList.add('lit');
     pullRing.classList.add('lit');
+    powerBtn.classList.add('is-on');
 
     const cat = CATS[Math.floor(Math.random() * CATS.length)];
     const list = IDEAS[cat];
@@ -134,6 +136,7 @@ function toggleBulb() {
     bulbWrap.classList.remove('lit', 'charging');
     bulbWrap.classList.add('off');
     pullRing.classList.remove('lit');
+    powerBtn.classList.remove('is-on');
     cardLabel.textContent = '';
     ideaText.innerHTML = '<span class="empty-state">lights off — tap the bulb to switch it back on</span>';
     pullBtn.disabled = true;
@@ -143,3 +146,7 @@ function toggleBulb() {
 pullBtn.addEventListener('click', pull);
 bulbWrap.addEventListener('click', toggleBulb);
 pullRing.addEventListener('click', toggleBulb);
+powerBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  toggleBulb();
+});

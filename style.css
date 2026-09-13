@@ -131,6 +131,13 @@
 
   .pull-ring.lit { border-color: var(--gold-dim); }
 
+  .pull-ring:focus-visible,
+  .bulb-wrap:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
   /* ---- The bulb ---- */
   .bulb-wrap {
     position: relative;
@@ -393,3 +400,4 @@
     .eyebrow-sep { display: none; }
     .eyebrow-line2 { display: block; margin-top: 6px; }
   }
+  

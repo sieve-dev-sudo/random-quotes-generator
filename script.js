@@ -95,6 +95,26 @@ const powerBtn = document.getElementById('powerBtn');
 let sparkCount = 0;
 let busy = false;
 let powerOn = true;
+let lastIdea = null;
+
+function pickIdea() {
+  let cat = CATS[Math.floor(Math.random() * CATS.length)];
+  let idea = IDEAS[cat][Math.floor(Math.random() * IDEAS[cat].length)];
+
+  // Avoid showing the exact same quote twice in a row when alternatives exist
+  const totalIdeas = CATS.reduce((sum, c) => sum + IDEAS[c].length, 0);
+  if (totalIdeas > 1) {
+    let attempts = 0;
+    while (idea === lastIdea && attempts < 10) {
+      cat = CATS[Math.floor(Math.random() * CATS.length)];
+      idea = IDEAS[cat][Math.floor(Math.random() * IDEAS[cat].length)];
+      attempts += 1;
+    }
+  }
+
+  lastIdea = idea;
+  return { cat, idea };
+}
 
 function renderWords(text) {
   ideaText.innerHTML = '';
@@ -126,9 +146,7 @@ function pull() {
     pullRing.classList.add('lit');
     powerBtn.classList.add('is-on');
 
-    const cat = CATS[Math.floor(Math.random() * CATS.length)];
-    const list = IDEAS[cat];
-    const idea = list[Math.floor(Math.random() * list.length)];
+    const { cat, idea } = pickIdea();
 
     cardLabel.innerHTML = cat + ' <span class="n">·</span> <span class="n">' + CAT_LABELS[cat] + '</span>';
     renderWords(idea);

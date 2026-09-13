@@ -160,9 +160,18 @@ function toggleBulb() {
   }
 }
 
+function handleToggleKey(e) {
+  if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+    e.preventDefault();
+    toggleBulb();
+  }
+}
+
 pullBtn.addEventListener('click', pull);
 bulbWrap.addEventListener('click', toggleBulb);
+bulbWrap.addEventListener('keydown', handleToggleKey);
 pullRing.addEventListener('click', toggleBulb);
+pullRing.addEventListener('keydown', handleToggleKey);
 powerBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   toggleBulb();

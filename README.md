@@ -11,19 +11,22 @@
 
 ---
 
-## ✨ Features
+## ✨ លក្ខណៈពិសេស
 
 - ទាញខ្សែពួរ ដើម្បីបង្កើត quote ដោយចៃដន្យ
 - មាន 6 categories: make, write, build, cook, start, quotes
 - សរុប 60 ឃ្លា (10 ក្នុងមួយ category) ជាភាសាអង់គ្លេសសុទ្ធ
+- មិនទាញឃ្លាដដែលៗជាប់គ្នាពីរដងទេ
 - អំពូលមាន animation ញាប់ (charging) មុននឹងភ្លឺជាពណ៌មាស
 - ចុចលើអំពូល ឬ switch ជាប់នឹងអំពូល ដើម្បី toggle បិទ / បើកភ្លើង
-- មាន spark counter រាប់ចំនួនដងដែលបានទាញក្នុង session នេះ
+- Support ប្រើ keyboard (Tab + Enter/Space) សម្រាប់ toggle អំពូល
+- មាន spark counter រាប់ចំនួនដងដែលបានទាញ ហើយរក្សាទុកឆ្លងកាត់ session (localStorage)
+- ស្ថានភាពបិទ/បើកភ្លើងក៏រក្សាទុកដែរ នៅពេលបើកទំព័រម្តងទៀត
 - Responsive ពេញលេញ (centered នៅលើ phone ផងដែរ) គ្មាន build step គ្មាន dependencies
 
 ---
 
-## 📁 Project Structure
+## 📁 រចនាសម្ព័ន្ធ Project
 
 ```
 Random-Quotes/
@@ -35,7 +38,7 @@ Random-Quotes/
 
 ---
 
-## 🚀 How to Run
+## 🚀 របៀបប្រើ
 
 1. Clone ឬ download repository នេះ:
    ```
@@ -43,3 +46,9 @@ Random-Quotes/
    ```
 2. បើកឯកសារ `index.html` ដោយ browser ណាមួយ
 3. ចុចប៊ូតុង **Pull the cord** ដើម្បីទាញរក quote ឬចុចលើអំពូលដើម្បីបិទ / បើកភ្លើង
+
+---
+
+## 🌐 English Summary
+
+A tiny, dependency-free web app: pull a lightbulb's cord to reveal a random quote from one of 6 categories (make, write, build, cook, start, quotes). The bulb has a charging flicker animation before lighting up gold. Click or tap the bulb (or use Tab + Enter/Space) to turn the light off/on. A spark counter tracks how many times you've pulled, and both the counter and the light's on/off state persist across page reloads via `localStorage`. No build step, no dependencies: just open `index.html` in a browser.

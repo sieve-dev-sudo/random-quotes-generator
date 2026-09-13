@@ -92,10 +92,14 @@ const pullRing = document.getElementById('pullRing');
 const cord = document.getElementById('cord');
 const powerBtn = document.getElementById('powerBtn');
 
-let sparkCount = 0;
+let sparkCount = Number(localStorage.getItem('sparkCount')) || 0;
 let busy = false;
 let powerOn = true;
 let lastIdea = null;
+
+if (sparkCount > 0) {
+  countEl.textContent = sparkCount + (sparkCount === 1 ? ' spark' : ' sparks');
+}
 
 function pickIdea() {
   let cat = CATS[Math.floor(Math.random() * CATS.length)];
@@ -153,6 +157,7 @@ function pull() {
 
     sparkCount += 1;
     countEl.textContent = sparkCount + (sparkCount === 1 ? ' spark' : ' sparks');
+    localStorage.setItem('sparkCount', String(sparkCount));
 
     busy = false;
     pullBtn.disabled = false;

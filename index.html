@@ -16,10 +16,10 @@
   <div class="socket-rig">
     <div class="socket"></div>
     <div class="cord" id="cord"></div>
-    <div class="pull-ring" id="pullRing"></div>
+    <div class="pull-ring" id="pullRing" role="button" tabindex="0" aria-label="Toggle light"></div>
   </div>
 
-  <div class="bulb-wrap" id="bulbWrap">
+  <div class="bulb-wrap" id="bulbWrap" role="button" tabindex="0" aria-label="Toggle light">
     <div class="socket-glow"></div>
     <svg id="bulb" viewBox="0 0 100 130">
       <path class="glass" d="M50 8 C25 8 12 26 12 46 C12 64 22 74 30 82 C36 88 36 92 36 98 L64 98 C64 92 64 88 70 82 C78 74 88 64 88 46 C88 26 75 8 50 8 Z"/>
@@ -47,7 +47,7 @@
 
   <div class="card">
     <div class="card-label" id="cardLabel"></div>
-    <div class="idea-text" id="ideaText">
+    <div class="idea-text" id="ideaText" aria-live="polite">
       <span class="empty-state">nothing yet — give it a pull</span>
     </div>
   </div>

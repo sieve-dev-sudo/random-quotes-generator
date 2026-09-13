@@ -94,11 +94,17 @@ const powerBtn = document.getElementById('powerBtn');
 
 let sparkCount = Number(localStorage.getItem('sparkCount')) || 0;
 let busy = false;
-let powerOn = true;
+let powerOn = localStorage.getItem('powerOn') !== 'false';
 let lastIdea = null;
 
 if (sparkCount > 0) {
   countEl.textContent = sparkCount + (sparkCount === 1 ? ' spark' : ' sparks');
+}
+
+if (!powerOn) {
+  bulbWrap.classList.add('off');
+  ideaText.innerHTML = '<span class="empty-state">lights off — tap the bulb to switch it back on</span>';
+  pullBtn.disabled = true;
 }
 
 function pickIdea() {
@@ -168,6 +174,7 @@ function toggleBulb() {
   if (busy) return;
 
   powerOn = !powerOn;
+  localStorage.setItem('powerOn', String(powerOn));
 
   if (powerOn) {
     bulbWrap.classList.remove('off');
